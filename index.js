@@ -12,13 +12,18 @@ if (!databaseUri) {
 }
 
 var api = new ParseServer({
-  databaseURI: databaseUri || 'mongodb://localhost:27017/dev',
+  databaseURI: databaseUri || 'mongodb://heroku_0h65fndw:sod8mo1tqj7shap5b6fapvno14@ds049486.mlab.com:49486/heroku_0h65fndw',
   cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
-  appId: process.env.APP_ID || 'myAppId',
-  masterKey: process.env.MASTER_KEY || '', //Add your master key here. Keep it secret!
-  serverURL: process.env.SERVER_URL || 'http://localhost:1337/parse',  // Don't forget to change to https if needed
+  appId: process.env.APP_ID || '4CmO6BLVjSMbePZuchiGnxpaMJK2xQECqq7GQ458',
+  masterKey: process.env.MASTER_KEY || '0Jra71v1Pd6SSMWf7MOz3amPML4FWbyTQZAWLgQN', //Add your master key here. Keep it secret!
+  restAPIKey: process.env.REST_API_KEY || 'sJIkhq2mtsIl8uMwcySitZP2dDYVWgD3Byb6PEjw',
+  javascriptKey: process.env.JAVASCRIPT_KEY || 'i6ow3Npsnewy6jggB5Si3QvTIHCJsqNNWv3zbdYr',
+  clientKey: process.env.CLIENT_KEY || "U7ldg5OZHasuU4o7UFEV0yBw47Fdf0VSfJWLAqRc",
+  serverURL: process.env.SERVER_URL || 'http://sportsworldpassportdatabase.herokuapp.com/parse',  // Don't forget to change to https if needed
+  enableAnonymousUsers: process.env.ANON_USERS || true,
+  allowClientClassCreation: process.env.CLIENT_CLASS_CREATION || true,
   liveQuery: {
-    classNames: ["Posts", "Comments"] // List of classes to support for query subscriptions
+    classNames: ["Comment", "Feed", "Follow", "HashTags", "News", "Stamp"] // List of classes to support for query subscriptions
   }
 });
 // Client-keys like the javascript key or the .NET key are not necessary with parse-server
