@@ -24,6 +24,17 @@ var api = new ParseServer({
   allowClientClassCreation: process.env.CLIENT_CLASS_CREATION || true,
   liveQuery: {
     classNames: ["Comment", "Feed", "Follow", "HashTags", "News", "Stamp"] // List of classes to support for query subscriptions
+  },
+  push: {
+    ios: [{
+      pdx: '/certs/Certificates.p12', // the path and filename to the .p12 file you exported earlier.
+      bundleId: 'com.boydlee.sportworldpassport', // The bundle identifier associated with your app
+      production: false
+    },{
+      pdx: '/certs/sportsWorld_apn_160419.p12', // the path and filename to the .p12 file you exported earlier.
+      bundleId: 'com.uwp.SportWorldPassport1', // The bundle identifier associated with your app
+      production: true
+    }]
   }
 });
 // Client-keys like the javascript key or the .NET key are not necessary with parse-server
