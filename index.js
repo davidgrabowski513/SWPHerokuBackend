@@ -38,10 +38,10 @@ var api = new ParseServer({
     }]
   },
   //password reset
-  verifyUserEmails: true,
-  emailVerifyTokenValidityDuration: 2*60*60,
-  preventLoginWithUnverifiedEmail: false,
-  publickServerURL: 'http://sportsworldpassportdatabase.herokuapp.com/parse',
+  //verifyUserEmails: true,
+  //emailVerifyTokenValidityDuration: 2*60*60,
+  //preventLoginWithUnverifiedEmail: false,
+  publicServerURL: 'http://sportsworldpassportdatabase.herokuapp.com/parse',
   appName: 'Sport World Passport',
   emailAdapter: {
 	  module: 'parse-server-simple-mailgun-adapter',
