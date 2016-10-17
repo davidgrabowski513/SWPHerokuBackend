@@ -36,6 +36,20 @@ var api = new ParseServer({
       bundleId: 'com.uwp.SportWorldPassport1', // The bundle identifier associated with your app
       production: true
     }]
+  },
+  //password reset
+  publickServerURL: 'http://sportsworldpassportdatabase.herokuapp.com/parse',
+  appName: 'Sport World Passport',
+  emailAdapter: {
+	  module: 'parse-server-simple-mailgun-adapter',
+	  options : {
+      // The address that your emails come from
+      fromAddress: '@hi@sportsworldpassport.com',
+      // Your domain from mailgun.com
+      domain: 'sportsworld.com',
+      // Your API key from mailgun.com
+      apiKey: 'key-b3a0451c01d6b81b9b8716a1ea52caa5',
+    }
   }
 });
 // Client-keys like the javascript key or the .NET key are not necessary with parse-server
