@@ -49,7 +49,7 @@ var api = new ParseServer({
       // The address that your emails come from
       fromAddress: '@hi@sportsworldpassport.com',
       // Your domain from mailgun.com
-      domain: 'sportsworld.com',
+      //domain: 'sportsworld.com',
       // Your API key from mailgun.com
       apiKey: 'key-b3a0451c01d6b81b9b8716a1ea52caa5',
     }
