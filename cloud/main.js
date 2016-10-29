@@ -112,6 +112,25 @@ Parse.Cloud.define("editUser", function(request, response) {
         response.error(error)
     });
 });
+
+//reset Password
+Parse.Cloud.define("resetPassword", function(request, response) {
+    var userId = request.params.userId;
+    var password = request.params.password;
+ 
+    var User = Parse.Object.extend('_User'),
+        user = new User({ objectId: userId });
+ 
+    user.set('password', password);
+ 
+    Parse.Cloud.useMasterKey();
+    user.save().then(function(user) {
+        response.success(user);
+    }, function(error) {
+        response.error(error)
+    });
+});
+
  
 Parse.Cloud.define("sendEmailTemplate", function(request, response) { 
     console.log("to : " + request.params.toEmail);
