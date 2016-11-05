@@ -46,29 +46,29 @@ Parse.Cloud.define("sendMail", function(request, response) {
  
 // Send email using MailGun
 Parse.Cloud.define("mailSend", function(request, response){
-    var Mailgun = require('mailgun');
-    Mailgun.initialize('sandbox896a38cfd6e8464f891957dd52259be3.mailgun.org', 'key-b3a0451c01d6b81b9b8716a1ea52caa5');
-    Mailgun.sendEmail({
-        to: request.params.toEmail,
-        from: request.params.fromEmail,
-        subject: request.params.subject,
-        text: request.params.text,
-        html: '<html><body style="text-align:left;"><img border="0" src="' + request.params.imageUrlKey + '" width="400" height="300">' +'<br/>' +'<br/>'
+    var Mailgun = require('mailgun-js')({apiKey: 'key-b3a0451c01d6b81b9b8716a1ea52caa5', domain: 'sandbox896a38cfd6e8464f891957dd52259be3.mailgun.org'});
+	var data = {
+		from: request.params.fromEmail,
+		to: request.params.toEmail,
+		subject: request.params.subject,
+		text: request.params.text,
+		html: '<html><body style="text-align:left;"><img border="0" src="' + request.params.imageUrlKey + '" width="400" height="300">' +'<br/>' +'<br/>'
             + request.params.text + '<br/>'
             + request.params.street + '<br/>'
             + request.params.country + '<br/>'
             + request.params.phoneNumber + '<br/>' + '<br/>'
             + request.params.price +'</body></html>'
-    }, {
-            success: function(httpResponse){
-                console.log(httpResponse);
-                response.success("Email sent successfully!");
-            },
-            error: function(httpResponse){
-                console.log(httpResponse);
-                response.error("Email failed");
-            }
-    });
+	};
+
+	Mailgun.messages().send(data, function(error, body){
+		if (error)
+		{
+			response.error("Email Failed");
+		} else {
+			response.success("Email sent");
+		}
+	});
+    
 });
  
 Parse.Cloud.define("mailSendwithText", function(request, response){
