@@ -86,11 +86,10 @@ Parse.Cloud.define("mailSendwithText", function(request, response){
 	Mailgun.messages().send(data, function(error, body){
 		if (error)
 		{
-			response.error("Email failed");
+			response.error(error);
 		} else {
 			response.success("Email sent");
 		}
-		
 	});
 
 //	Mailgun.sendEmail({
