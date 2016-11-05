@@ -72,6 +72,7 @@ Parse.Cloud.define("mailSend", function(request, response){
 });
  
 Parse.Cloud.define("mailSendwithText", function(request, response){
+	console.log('type');
     var Mailgun = require('mailgun-js')({apiKey: 'key-c17c4c9017a7b6b5c379e20e15bd7fd0', domain: 'sandboxb45f4a2a533a49a7af3088001f030013.mailgun.org'});
 //    Mailgun.initialize('sandboxb45f4a2a533a49a7af3088001f030013.mailgun.org', 'key-c17c4c9017a7b6b5c379e20e15bd7fd0');
 	
