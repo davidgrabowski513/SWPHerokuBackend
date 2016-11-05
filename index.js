@@ -1,4 +1,4 @@
-// Example express application adding the parse-server module to expose Parse
+	// Example express application adding the parse-server module to expose Parse
 // compatible API routes.
 
 var express = require('express');
@@ -44,14 +44,18 @@ var api = new ParseServer({
   publicServerURL: 'https://sportsworldpassportdatabase.herokuapp.com/parse',
   appName: 'Sport World Passport',
   emailAdapter: {
-	  module: 'parse-server-simple-mailgun-adapter',
+	  module: 'parse-server-mailgun-adapter-template',
 	  options : {
       // The address that your emails come from
-      fromAddress: '@hi@sportsworldpassport.com',
+      fromAddress: '@no-reply@sportsworldpassport.com',
       // Your domain from mailgun.com
       domain: 'sandbox896a38cfd6e8464f891957dd52259be3.mailgun.org',
       // Your API key from mailgun.com
       apiKey: 'key-b3a0451c01d6b81b9b8716a1ea52caa5',
+	
+	  //password reset
+	  passwordResetSubject: 'Password Reset Request for SportWorldPassport',
+      passwordResetBody: 'Hi,\n\nYou requested a password reset for %appname%.\n\nClick here to reset it:\n%link%'
     }
   }
 });
