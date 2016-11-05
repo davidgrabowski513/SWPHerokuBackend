@@ -72,23 +72,35 @@ Parse.Cloud.define("mailSend", function(request, response){
 });
  
 Parse.Cloud.define("mailSendwithText", function(request, response){
-    var Mailgun = require('mailgun');
-    Mailgun.initialize('sandboxb45f4a2a533a49a7af3088001f030013.mailgun.org', 'key-c17c4c9017a7b6b5c379e20e15bd7fd0');
-    Mailgun.sendEmail({
-        to: request.params.toEmail,
-        from: request.params.fromEmail,
-        subject: request.params.subject,
-        text: request.params.text
-    }, {
-            success: function(httpResponse){
-                console.log(httpResponse);
-                response.success("Email sent successfully!");
-            },
-            error: function(httpResponse){
-                console.log(httpResponse);
-                response.error("Email failed");
-            }
-    });
+    var Mailgun = require('mailgun')({apiKey: 'key-c17c4c9017a7b6b5c379e20e15bd7fd0', domain: 'sandboxb45f4a2a533a49a7af3088001f030013.mailgun.org'});
+//    Mailgun.initialize('sandboxb45f4a2a533a49a7af3088001f030013.mailgun.org', 'key-c17c4c9017a7b6b5c379e20e15bd7fd0');
+	
+	var data = {
+		from: request.params.fromEmail,
+		to: request.params.toEmail,
+		subject: request.params.subject,
+		text: request.params.text
+	};
+
+	Mailgun.message().send(data, function(error, body){
+		console.log(body);
+	});
+
+//	Mailgun.sendEmail({
+//       to: request.params.toEmail,
+//        from: request.params.fromEmail,
+//        subject: request.params.subject,
+//        text: request.params.text
+//   }, {
+//            success: function(httpResponse){
+//                console.log(httpResponse);
+//                response.success("Email sent successfully!");
+//            },
+//            error: function(httpResponse){
+//                console.log(httpResponse);
+//                response.error("Email failed");
+//            }
+//    });
 });
  
 // update other user's info
