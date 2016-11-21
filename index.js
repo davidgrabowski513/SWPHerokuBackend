@@ -54,8 +54,7 @@ var api = new ParseServer({
       apiKey: 'key-b3a0451c01d6b81b9b8716a1ea52caa5',
 		   //password reset
 	  passwordResetSubject: 'Password Reset Request for SportWorldPassport',
-//      passwordResetBody: 'Hi,\n\nYou requested a password reset for %appname%.\n\nClick here to reset it:\n%link%'
-      passwordResetBody: 'Password Reset Test Mail Body'
+      passwordResetBody: 'Hi,\n\nYou requested a password reset for %appname%.\n\nClick here to reset it:\n%link%'
     }
   }
 });
