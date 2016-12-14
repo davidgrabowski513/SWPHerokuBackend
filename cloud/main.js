@@ -46,7 +46,7 @@ Parse.Cloud.define("sendMail", function(request, response) {
  
 // Send email using MailGun
 Parse.Cloud.define("mailSend", function(request, response){
-    var Mailgun = require('mailgun-js')({apiKey: 'key-b3a0451c01d6b81b9b8716a1ea52caa5', domain: 'sandbox896a38cfd6e8464f891957dd52259be3.mailgun.org'});
+    var Mailgun = require('mailgun-js')({apiKey: 'key-b7307a07a3145ac40891003b61cc639f', domain: 'sportworldpassport.com'});
 	var data = {
 		from: request.params.fromEmail,
 		to: request.params.toEmail,
@@ -72,7 +72,7 @@ Parse.Cloud.define("mailSend", function(request, response){
 });
  
 Parse.Cloud.define("mailSendwithText", function(request, response){
-    var Mailgun = require('mailgun-js')({apiKey: 'key-b3a0451c01d6b81b9b8716a1ea52caa5', domain: 'sandbox896a38cfd6e8464f891957dd52259be3.mailgun.org'});
+    var Mailgun = require('mailgun-js')({apiKey: 'key-b7307a07a3145ac40891003b61cc639f', domain: 'sportworldpassport.com'});
 //    Mailgun.initialize('sandboxb45f4a2a533a49a7af3088001f030013.mailgun.org', 'key-c17c4c9017a7b6b5c379e20e15bd7fd0');
 	
 	var data = {
