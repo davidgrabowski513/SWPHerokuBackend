@@ -49,9 +49,9 @@ var api = new ParseServer({
       // The address that your emails come from
       fromAddress: 'no-reply@sportsworldpassport.com',
       // Your domain from mailgun.com
-      domain: 'sandbox896a38cfd6e8464f891957dd52259be3.mailgun.org',
+      domain: 'sportworldpassport.com',
       // Your API key from mailgun.com
-      apiKey: 'key-b3a0451c01d6b81b9b8716a1ea52caa5',
+      apiKey: 'key-b7307a07a3145ac40891003b61cc639f',
 		   //password reset
 	  passwordResetSubject: 'Password Reset Request for SportWorldPassport',
       passwordResetBody: 'Hi,\n\nYou requested a password reset for %appname%.\n\nClick here to reset it:\n%link%'
