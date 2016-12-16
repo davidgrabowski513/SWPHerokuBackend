@@ -3,34 +3,34 @@
 */
 
 // iOS push testing
-Parse.Cloud.define("Push", function(request, response) {
+Parse.Cloud.define("SendPush", function(request, response) {
 
-  // request has 2 parameters: params passed by the client and the authorized user                                                                                                                               
-  var params = request.params;
-  var userId = request.userId;
+    var query = new Parse.Query(Parse.User);
+	query.containedIn('objectId', request.params.idlist);
 
-//  var messageText = params.alert;
-//  pushQuery.equalTo('deviceType', 'ios'); // targeting iOS devices only
+    // Find devices associated with these users
+    var pushQuery = new Parse.Query(Parse.Installation);
+    // need to have users linked to installations
+    pushQuery.matchesQuery('userInfo', query);
 
-  var User = Parse.Object.extend('_User'),
-  user = new User({ objectId: userId });
-
-  response.success(user);
-  return;
-
-  var pushQuery = new Parse.Query(Parse.Installation);
-  pushQuery.equalTo('user', user);
-
-  Parse.Push.send({
-    where: pushQuery, // Set our Installation query                                                                                                                                                              
-    data: params.data
-  }, { success: function() {
-      console.log("#### PUSH OK");
-  }, error: function(error) {
-      console.log("#### PUSH ERROR" + error.message);
-  }, useMasterKey: true});
-
-  response.success('success');
+	Parse.Push.send({
+        where: pushQuery,
+        data: {
+                 alert: request.params.alert,
+    //             datainfo: request.params.datainfo,
+                 type: request.params.type,
+                 badge: request.params.badge,
+                 sound: request.params.sound
+            }
+        }, {
+		        success: function () {
+                response.success("send push success");
+            },
+			    error: function (error) {
+                response.error(error);
+            },
+            useMasterKey: true
+    });
 });
 
 
