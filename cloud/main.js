@@ -9,15 +9,16 @@ Parse.Cloud.define("Push", function(request, response) {
   var params = request.params;
   var userId = request.userId;
 
-  // Our "Message" class has a "text" key with the body of the message itself                                                                                                                                    
 //  var messageText = params.alert;
-
-  var pushQuery = new Parse.Query(Parse.Installation);
 //  pushQuery.equalTo('deviceType', 'ios'); // targeting iOS devices only
 
   var User = Parse.Object.extend('_User'),
   user = new User({ objectId: userId });
 
+  response.success(user);
+  return;
+
+  var pushQuery = new Parse.Query(Parse.Installation);
   pushQuery.equalTo('user', user);
 
   Parse.Push.send({
@@ -29,7 +30,7 @@ Parse.Cloud.define("Push", function(request, response) {
       console.log("#### PUSH ERROR" + error.message);
   }, useMasterKey: true});
 
- 
+  response.success('success');
 });
 
 
