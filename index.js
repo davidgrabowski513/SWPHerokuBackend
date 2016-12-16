@@ -27,14 +27,18 @@ var api = new ParseServer({
     classNames: ["Comment", "Feed", "Follow", "HashTags", "News", "Stamp"] // List of classes to support for query subscriptions
   },
   push: {
-    ios: [{
-      pdx: '/certs/Certificates.p12', // the path and filename to the .p12 file you exported earlier.
+    'ios': [{
+      pdx: '/cert/Certificates.p12', // the path and filename to the .p12 file you exported earlier.
+      bundleId: 'com.boydlee.sportworldpassport', // The bundle identifier associated with your app
+      production: true
+    },{
+      pdx: '/cert/swp_dev_apns.p12', // the path and filename to the .p12 file you exported earlier.
       bundleId: 'com.boydlee.sportworldpassport', // The bundle identifier associated with your app
       production: false
     },{
-      pdx: '/certs/sportsWorld_apn_160419.p12', // the path and filename to the .p12 file you exported earlier.
+      pdx: '/cert/sportsWorld_apn_160419.p12', // the path and filename to the .p12 file you exported earlier.
       bundleId: 'com.uwp.SportWorldPassport1', // The bundle identifier associated with your app
-      production: true
+      production: false
     }]
   },
   //password reset
