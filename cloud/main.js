@@ -10,7 +10,7 @@ Parse.Cloud.define("Push", function(request, response) {
   var userId = request.user;
 
   // Our "Message" class has a "text" key with the body of the message itself                                                                                                                                    
-  var messageText = params.alert;
+//  var messageText = params.alert;
 
   var pushQuery = new Parse.Query(Parse.Installation);
 //  pushQuery.equalTo('deviceType', 'ios'); // targeting iOS devices only
