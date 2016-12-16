@@ -8,13 +8,10 @@ Parse.Cloud.define("SendPush", function(request, response) {
     var query = new Parse.Query(Parse.User);
 	query.containedIn('objectId', request.params.idlist);
 
-//	response.success(query);
-//	return;
-
     // Find devices associated with these users
     var pushQuery = new Parse.Query(Parse.Installation);
-    //pushQuery.matchesQuery('userInfo', query);
-	pushQuery.equalTo('user', params.userId);
+    pushQuery.matchesQuery('user', query);
+	//pushQuery.equalTo('user', params.userId);
 
 	Parse.Push.send({
 //        where: pushQuery,
