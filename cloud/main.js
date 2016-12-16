@@ -7,10 +7,8 @@ Parse.Cloud.define("Push", function(request, response) {
 
   // request has 2 parameters: params passed by the client and the authorized user                                                                                                                               
   var params = request.params;
-  var userId = request.user;
+  var userId = request.userId;
 
-  response.success(userId);
-  return;
   // Our "Message" class has a "text" key with the body of the message itself                                                                                                                                    
 //  var messageText = params.alert;
 
