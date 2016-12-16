@@ -9,7 +9,8 @@ Parse.Cloud.define("Push", function(request, response) {
   var params = request.params;
   var userId = request.user;
 
-  console.log(userId);
+  response.success('success');
+  return;
   // Our "Message" class has a "text" key with the body of the message itself                                                                                                                                    
 //  var messageText = params.alert;
 
@@ -30,7 +31,7 @@ Parse.Cloud.define("Push", function(request, response) {
       console.log("#### PUSH ERROR" + error.message);
   }, useMasterKey: true});
 
-  response.success('success');
+ 
 });
 
 
