@@ -27,7 +27,7 @@ var api = new ParseServer({
     classNames: ["Comment", "Feed", "Follow", "HashTags", "News", "Stamp"] // List of classes to support for query subscriptions
   },
   push: {
-    'ios': [{
+    ios: [{
       pdx: '/cert/Certificates.p12', // the path and filename to the .p12 file you exported earlier.
       bundleId: 'com.boydlee.sportworldpassport', // The bundle identifier associated with your app
       production: true
