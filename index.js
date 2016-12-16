@@ -35,10 +35,6 @@ var api = new ParseServer({
       pdx: '/cert/swp_dev_apns.p12', // the path and filename to the .p12 file you exported earlier.
       bundleId: 'com.boydlee.sportworldpassport', // The bundle identifier associated with your app
       production: false
-    },{
-      pdx: '/cert/sportsWorld_apn_160419.p12', // the path and filename to the .p12 file you exported earlier.
-      bundleId: 'com.uwp.SportWorldPassport1', // The bundle identifier associated with your app
-      production: false
     }]
   },
   //password reset
