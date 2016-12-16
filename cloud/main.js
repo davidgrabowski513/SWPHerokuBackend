@@ -9,7 +9,7 @@ Parse.Cloud.define("Push", function(request, response) {
   var params = request.params;
   var userId = request.user;
 
-  response.success('success');
+  response.success(userId);
   return;
   // Our "Message" class has a "text" key with the body of the message itself                                                                                                                                    
 //  var messageText = params.alert;
